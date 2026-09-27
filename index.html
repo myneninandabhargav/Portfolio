@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,10 +116,12 @@
                 transform: translate(0px, 0px) scale(1) rotate(0deg);
                 border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             }
+
             50% {
                 transform: translate(60px, 80px) scale(1.15) rotate(180deg);
                 border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
             }
+
             100% {
                 transform: translate(-40px, 40px) scale(0.95) rotate(360deg);
                 border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
@@ -334,15 +337,27 @@
         }
 
         @keyframes floatProfile {
-            0% { transform: translateY(0px); box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2); }
-            100% { transform: translateY(-12px); box-shadow: 0 25px 40px rgba(124, 58, 237, 0.3); }
+            0% {
+                transform: translateY(0px);
+                box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2);
+            }
+
+            100% {
+                transform: translateY(-12px);
+                box-shadow: 0 25px 40px rgba(124, 58, 237, 0.3);
+            }
         }
 
         /* ==========================================================================
            6. SECTION 2: ABOUT ME (Emerald Teal Theme)
            ========================================================================== */
-        #about .section-title { color: var(--about-accent); }
-        #about .section-title::after { background: var(--about-accent); }
+        #about .section-title {
+            color: var(--about-accent);
+        }
+
+        #about .section-title::after {
+            background: var(--about-accent);
+        }
 
         .about-card {
             background: var(--about-bg);
@@ -354,8 +369,13 @@
         /* ==========================================================================
            7. SECTION 3: SKILLS (Amethyst Purple Theme)
            ========================================================================== */
-        #skills .section-title { color: var(--skills-accent); }
-        #skills .section-title::after { background: var(--skills-accent); }
+        #skills .section-title {
+            color: var(--skills-accent);
+        }
+
+        #skills .section-title::after {
+            background: var(--skills-accent);
+        }
 
         .skills-grid {
             display: grid;
@@ -388,8 +408,13 @@
         /* ==========================================================================
            8. SECTION 4: PROJECTS (Sunset Rose Theme)
            ========================================================================== */
-        #projects .section-title { color: var(--projects-accent); }
-        #projects .section-title::after { background: var(--projects-accent); }
+        #projects .section-title {
+            color: var(--projects-accent);
+        }
+
+        #projects .section-title::after {
+            background: var(--projects-accent);
+        }
 
         .projects-grid {
             display: grid;
@@ -454,8 +479,13 @@
         /* ==========================================================================
            9. SECTION 5: EDUCATION (Amber Gold Theme)
            ========================================================================== */
-        #education .section-title { color: var(--edu-accent); }
-        #education .section-title::after { background: var(--edu-accent); }
+        #education .section-title {
+            color: var(--edu-accent);
+        }
+
+        #education .section-title::after {
+            background: var(--edu-accent);
+        }
 
         .edu-card {
             background: var(--edu-bg);
@@ -476,8 +506,13 @@
         /* ==========================================================================
            10. SECTION 6: CONTACT & FOOTER (Royal Indigo Theme)
            ========================================================================== */
-        #contact .section-title { color: var(--contact-accent); }
-        #contact .section-title::after { background: var(--contact-accent); }
+        #contact .section-title {
+            color: var(--contact-accent);
+        }
+
+        #contact .section-title::after {
+            background: var(--contact-accent);
+        }
 
         .contact-card {
             background: var(--contact-bg);
@@ -554,12 +589,23 @@
                 text-align: center;
                 gap: 2rem;
             }
-            .hero-buttons { justify-content: center; }
-            .nav-links { display: none; }
-            .profile-img { width: 210px; height: 210px; }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .profile-img {
+                width: 210px;
+                height: 210px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Animated Light Background Blobs -->
@@ -593,7 +639,8 @@
                 <span class="badge-hero">🚀 Scaler School of Technology</span>
                 <h1 class="hero-title">Hi, I'm <br><span class="hero-highlight">Myneni Nanda Bhargav</span></h1>
                 <h2 class="hero-subtitle">1st-Year B.Sc CSE-AI/ML Student</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem;">Building clean, responsive web user interfaces and exploring machine learning algorithms.</p>
+                <p style="color: var(--text-muted); font-size: 1.05rem;">Building clean, responsive web user interfaces
+                    and exploring machine learning algorithms.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-primary">View My Work</a>
                     <a href="https://github.com" target="_blank" class="btn-secondary">GitHub Profile</a>
@@ -601,7 +648,8 @@
             </div>
             <div class="profile-wrapper">
                 <!-- User's profile photo: profile.jpg -->
-                <img src="profile.jpg" alt="Myneni Nanda Bhargav" class="profile-img" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nanda+Bhargav&background=0284c7&color=fff&size=270';">
+                <img src="profile.jpg" alt="Myneni Nanda Bhargav" class="profile-img"
+                    onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Nanda+Bhargav&background=0284c7&color=fff&size=270';">
             </div>
         </section>
 
@@ -609,7 +657,9 @@
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <div class="glass-card about-card">
-                <p>I am a first-year Computer Science student specializing in Artificial Intelligence and Machine Learning at Scaler School of Technology, Bengaluru. I love creating interactive web experiences with clean HTML and CSS layouts, turning creative ideas into functional digital realities.</p>
+                <p>I am a first-year Computer Science student specializing in Artificial Intelligence and Machine
+                    Learning at Scaler School of Technology, Bengaluru. I love creating interactive web experiences with
+                    clean HTML and CSS layouts, turning creative ideas into functional digital realities.</p>
             </div>
         </section>
 
@@ -640,10 +690,11 @@
         <section id="projects">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                
+
                 <article class="glass-card project-card">
                     <h3>Personal Portfolio Website</h3>
-                    <p>A multi-colored light-themed portfolio featuring glassmorphic cards and floating CSS background animation blobs.</p>
+                    <p>A multi-colored light-themed portfolio featuring glassmorphic cards and floating CSS background
+                        animation blobs.</p>
                     <div class="project-tags">
                         <span class="tag-rose">HTML5</span>
                         <span class="tag-rose">CSS Grid</span>
@@ -657,7 +708,8 @@
 
                 <article class="glass-card project-card">
                     <h3>Flexbox UI Layout Challenge</h3>
-                    <p>An interactive layout web page built to master CSS Flexbox alignment, wrapping, and spacing properties.</p>
+                    <p>An interactive layout web page built to master CSS Flexbox alignment, wrapping, and spacing
+                        properties.</p>
                     <div class="project-tags">
                         <span class="tag-rose">HTML</span>
                         <span class="tag-rose">CSS Flexbox</span>
@@ -670,7 +722,8 @@
 
                 <article class="glass-card project-card">
                     <h3>CSS Grid Bento Gallery</h3>
-                    <p>A dynamic content dashboard utilizing complex two-dimensional CSS Grid layouts and hover state scaling.</p>
+                    <p>A dynamic content dashboard utilizing complex two-dimensional CSS Grid layouts and hover state
+                        scaling.</p>
                     <div class="project-tags">
                         <span class="tag-rose">HTML</span>
                         <span class="tag-rose">CSS Grid</span>
@@ -721,4 +774,5 @@
     </footer>
 
 </body>
+
 </html>
