@@ -1,0 +1,364 @@
+<!DOCTYPE html> <!-- Declares this as a modern HTML5 document. -->
+<html lang="en"> <!-- Starts the HTML and sets the document language to English. -->
+<head> <!-- Opens the head section for metadata, links, and styles. -->
+    <meta charset="UTF-8"> <!-- Sets character encoding to support all symbols and emojis. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures the page scales correctly on mobile phones. -->
+    <title>Myneni Nanda Bhargav | Portfolio</title> <!-- The title shown on the browser tab. -->
+    
+    <!-- This link imports FontAwesome, a free CSS library that gives us all the brand icons (Python, Java, etc.)! -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style> /* Starts the CSS styling section. */
+        
+        /* =========================================
+           GLOBAL SETTINGS
+           ========================================= */
+        * { /* Selects every element on the page. */
+            margin: 0; /* Removes default outside spacing. */
+            padding: 0; /* Removes default inside spacing. */
+            box-sizing: border-box; /* Prevents padding from increasing element sizes. */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sets a clean, modern font. */
+        } /* Closes global styles. */
+
+        html { /* Selects the root HTML element. */
+            scroll-behavior: smooth; /* Makes clicking navigation links glide smoothly down the page! */
+        } /* Closes HTML styles. */
+
+        /* =========================================
+           VIBRANT ANIMATED BACKGROUND
+           ========================================= */
+        body { /* Selects the visible body of the webpage. */
+            /* A super vibrant but light gradient using pastel pink, cyan, yellow, and blue. */
+            background: linear-gradient(-45deg, #ffc3a0, #ffafbd, #a1c4fd, #c2e9fb, #fbc2eb);
+            background-size: 400% 400%; /* Stretches the gradient massively so we can move it. */
+            animation: moveGradient 15s ease infinite; /* Animates the background over 15s, looping forever. */
+            color: #333; /* Dark gray text for perfect readability. */
+            overflow-x: hidden; /* Hides horizontal scrollbars. */
+            position: relative; /* Allows us to position floating shapes behind the content. */
+        } /* Closes body styles. */
+
+        @keyframes moveGradient { /* Defines the background moving animation. */
+            0% { background-position: 0% 50%; } /* Starts at the left. */
+            50% { background-position: 100% 50%; } /* Moves all the way to the right. */
+            100% { background-position: 0% 50%; } /* Moves smoothly back to the left. */
+        } /* Closes background animation. */
+
+        /* Floating background shapes for extra vibrancy! */
+        .shape { /* Base style for background bubbles. */
+            position: absolute; /* Allows placing them anywhere on screen. */
+            background: rgba(255, 255, 255, 0.4); /* Semi-transparent white. */
+            border-radius: 50%; /* Makes them circular. */
+            filter: blur(5px); /* Blurs them slightly for a dreamy effect. */
+            z-index: -1; /* Pushes them behind all your text and cards. */
+            animation: floatShape 10s infinite ease-in-out; /* Makes them float up and down. */
+        } /* Closes shape styles. */
+
+        @keyframes floatShape { /* Defines the bubble floating animation. */
+            0%, 100% { transform: translateY(0) scale(1); } /* Starts normal size and position. */
+            50% { transform: translateY(-50px) scale(1.1); } /* Floats up 50px and grows slightly. */
+        } /* Closes float shape animation. */
+
+        /* =========================================
+           NAVIGATION BAR
+           ========================================= */
+        nav { /* Selects the top navigation bar. */
+            position: fixed; /* Locks it to the top of the screen. */
+            top: 0; /* Zero distance from the top. */
+            width: 100%; /* Spans the entire width of the screen. */
+            background: rgba(255, 255, 255, 0.7); /* Highly transparent white. */
+            backdrop-filter: blur(15px); /* Strong frosted glass blur over the vibrant background. */
+            display: flex; /* Aligns links in a row. */
+            justify-content: center; /* Centers the links horizontally. */
+            gap: 35px; /* Adds 35px space between each link. */
+            padding: 20px 0; /* Adds top and bottom padding. */
+            z-index: 1000; /* Keeps it on top of everything else. */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adds a soft drop shadow. */
+        } /* Closes nav styles. */
+
+        nav a { /* Selects the links inside the nav. */
+            text-decoration: none; /* Removes the ugly default link underline. */
+            color: #222; /* Dark text color. */
+            font-weight: 800; /* Very bold text. */
+            text-transform: uppercase; /* Capitalizes all letters. */
+            letter-spacing: 1px; /* Adds space between letters. */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy hover transition! */
+        } /* Closes nav link styles. */
+
+        nav a:hover { /* What happens when you hover over a nav link. */
+            color: #ff007f; /* Changes color to a vibrant neon pink. */
+            transform: translateY(-3px) scale(1.1); /* The link jumps up and grows 10% larger! */
+        } /* Closes nav hover styles. */
+
+        /* =========================================
+           MAIN LAYOUT & TYPOGRAPHY
+           ========================================= */
+        section { /* Selects all major sections on the page. */
+            min-height: 100vh; /* Ensures sections take up full screen height. */
+            display: flex; /* Uses flexbox for layout. */
+            flex-direction: column; /* Stacks items vertically. */
+            align-items: center; /* Centers items horizontally. */
+            justify-content: center; /* Centers items vertically. */
+            padding: 100px 20px 50px; /* Top padding stops nav bar from covering content. */
+        } /* Closes section styles. */
+
+        .section-title { /* Styles the big titles (About, Skills, etc). */
+            font-size: 3rem; /* Very large text. */
+            color: #111; /* Almost black text. */
+            margin-bottom: 50px; /* Space below the title. */
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8); /* Adds a white glowing shadow to make it pop. */
+            display: flex; /* Flexbox to align the icon with text. */
+            align-items: center; /* Centers icon vertically with text. */
+            gap: 15px; /* Space between title icon and text. */
+        } /* Closes section title styles. */
+
+        /* =========================================
+           HERO SECTION (HOME)
+           ========================================= */
+        .profile-pic { /* Styles your photo. */
+            width: 280px; /* Sets image width. */
+            height: 280px; /* Sets image height. */
+            border-radius: 50%; /* Makes the image a perfect circle. */
+            border: 8px solid white; /* Thick white border. */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 0, 127, 0.4); /* Drops a shadow AND a pink glow! */
+            /* Links to your specific image filename[cite: 1]! */
+            background-image: url('profile.jpg'); 
+            background-size: cover; /* Ensures image fills the circle. */
+            background-position: center; /* Centers the image. */
+            animation: pulseProfile 3s infinite alternate; /* Applies a pulsing/floating animation. */
+            margin-bottom: 20px; /* Space below the picture. */
+        } /* Closes profile pic styles. */
+
+        @keyframes pulseProfile { /* Defines the profile picture animation. */
+            0% { transform: translateY(0) scale(1); box-shadow: 0 15px 35px rgba(0,0,0,0.2), 0 0 20px rgba(255,0,127,0.4); } /* Normal state. */
+            100% { transform: translateY(-15px) scale(1.02); box-shadow: 0 25px 45px rgba(0,0,0,0.2), 0 0 60px rgba(0,191,255,0.6); } /* Floats up, grows slightly, glow turns cyan! */
+        } /* Closes pulse animation. */
+
+        .hero-name { font-size: 4rem; font-weight: 900; color: #222; text-shadow: 2px 2px 5px rgba(255,255,255,0.9); text-align: center; } /* Styles your big name. */
+        .hero-subtitle { font-size: 1.8rem; color: #ff007f; font-weight: 800; margin-top: 10px; background: rgba(255,255,255,0.5); padding: 5px 20px; border-radius: 20px; } /* Styles your title with a semi-transparent background. */
+
+        /* =========================================
+           VIBRANT TILTED CARDS (With BOUNCY Hover)
+           ========================================= */
+        .card-container { /* Wraps the cards to control their layout. */
+            width: 100%; /* Full width up to max. */
+            max-width: 1000px; /* Caps width at 1000px. */
+            display: flex; /* Flexbox layout. */
+            flex-direction: column; /* Stacks cards vertically. */
+            gap: 40px; /* 40px space between cards. */
+        } /* Closes card container styles. */
+
+        .tilted-card { /* Styles the individual cards. */
+            background: rgba(255, 255, 255, 0.9); /* Mostly opaque white. */
+            backdrop-filter: blur(10px); /* Frosted glass effect for the 10% transparency. */
+            padding: 35px 45px; /* Thick padding inside the card. */
+            border-radius: 20px; /* Big rounded corners. */
+            /* This applies the tilt you requested! */
+            transform: skewX(-4deg) rotate(-1deg); 
+            /* This is a special cubic-bezier curve that makes the hover animation "bounce" or "spring" into place! */
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            border-left: 10px solid; /* Prepares a thick left border. */
+            border-image: linear-gradient(to bottom, #ff007f, #00bfff) 1; /* Colors the left border with a pink-to-cyan gradient! */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft resting shadow. */
+        } /* Closes tilted card styles. */
+
+        .tilted-card-content { /* Wraps the text inside the card. */
+            /* Counter-tilts the content so your text is perfectly straight while the card is tilted! */
+            transform: skewX(4deg) rotate(1deg); 
+            transition: all 0.5s ease; /* Smooth transition for content on hover. */
+        } /* Closes tilted content styles. */
+
+        .tilted-card:hover { /* What happens when your mouse touches the card. */
+            /* UN-TILTS the card, lifts it 15 pixels up, and scales it 5% larger! Very dynamic. */
+            transform: skewX(0deg) rotate(0deg) translateY(-15px) scale(1.05); 
+            /* Creates a massive, colorful glowing drop shadow! */
+            box-shadow: 0 20px 50px rgba(0, 191, 255, 0.3), 0 0 30px rgba(255, 0, 127, 0.2); 
+            background: rgba(255, 255, 255, 1); /* Makes the card solid white on hover. */
+        } /* Closes tilted card hover styles. */
+
+        .tilted-card:hover .tilted-card-content { /* What happens to the text wrapper on hover. */
+            /* Removes the counter-tilt since the card is now straight. */
+            transform: skewX(0deg) rotate(0deg); 
+        } /* Closes tilted content hover styles. */
+
+        /* =========================================
+           ICONS & TEXT STYLING
+           ========================================= */
+        .card-heading { /* Styles the titles inside the cards. */
+            font-size: 1.8rem; /* Large font size. */
+            margin-bottom: 20px; /* Space below heading. */
+            display: flex; /* Flexbox to align icon and text. */
+            align-items: center; /* Vertically centers them. */
+            gap: 15px; /* Adds space between icon and text. */
+            background: linear-gradient(90deg, #ff007f, #00bfff); /* Gradient text color! */
+            -webkit-background-clip: text; /* Clips the background to the text shape. */
+            -webkit-text-fill-color: transparent; /* Makes the font transparent to show the gradient. */
+        } /* Closes card heading styles. */
+
+        .card-icon { /* Styles the FontAwesome icons inside the cards. */
+            font-size: 2.2rem; /* Makes icons big. */
+            color: #00bfff; /* Sets default cyan color. */
+            transition: transform 0.3s ease; /* Prepares icon for rotation. */
+        } /* Closes card icon styles. */
+
+        .tilted-card:hover .card-icon { /* When card is hovered... */
+            transform: scale(1.2) rotate(10deg); /* The icon grows and twists! */
+            color: #ff007f; /* The icon turns pink! */
+        } /* Closes card icon hover styles. */
+
+        .card-text { font-size: 1.2rem; line-height: 1.8; color: #444; } /* Styles standard paragraph text. */
+        .card-text strong { color: #111; font-weight: 800; } /* Makes bold text darker. */
+
+        /* Inline tech icons for the skills section */
+        .tech-icon { font-size: 1.5rem; margin-right: 5px; vertical-align: middle; } /* Sizes small inline icons. */
+        .java-color { color: #f89820; } /* Java orange. */
+        .python-color { color: #3776ab; } /* Python blue. */
+        .html-color { color: #e34f26; } /* HTML orange. */
+        .css-color { color: #1572b6; } /* CSS blue. */
+
+        /* =========================================
+           ANIMATED BUTTONS
+           ========================================= */
+        .btn-container { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; margin-top: 30px; } /* Aligns contact buttons. */
+
+        .btn { /* Base styling for buttons. */
+            padding: 15px 35px; /* Size of button. */
+            background: linear-gradient(45deg, #00bfff, #ff007f, #00bfff); /* A 3-color gradient! */
+            background-size: 200% auto; /* Doubles background size for animation. */
+            color: white; /* White text. */
+            text-decoration: none; /* Removes link underline. */
+            border-radius: 50px; /* Pill shape. */
+            font-weight: bold; /* Bold text. */
+            font-size: 1.2rem; /* Text size. */
+            transition: all 0.4s ease; /* Smooth hover transition. */
+            box-shadow: 0 5px 15px rgba(255, 0, 127, 0.4); /* Pink shadow. */
+            display: flex; /* Flexbox for icon alignment. */
+            align-items: center; /* Center icon vertically. */
+            gap: 10px; /* Space between icon and text. */
+        } /* Closes button styles. */
+
+        .btn:hover { /* On button hover... */
+            background-position: right center; /* Shifts the background, creating a sweeping SHINE effect! */
+            transform: translateY(-5px) scale(1.05); /* Lifts and grows the button. */
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.6); /* Cyan shadow. */
+        } /* Closes button hover styles. */
+
+    </style> <!-- Closes all CSS styling. -->
+</head> <!-- Closes the head section. -->
+<body> <!-- Opens the visible body of the webpage. -->
+
+    <!-- These div shapes float around in the background for extra animation! -->
+    <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 15%; animation-delay: 0s;"></div>
+    <div class="shape" style="width: 150px; height: 150px; top: 60%; right: 10%; animation-delay: 2s; background: rgba(255,0,127,0.8);"></div>
+    <div class="shape" style="width: 80px; height: 80px; top: 40%; left: 50%; animation-delay: 4s; background: rgba(0,191,255,0.1);"></div>
+
+    <!-- NAVIGATION MENU -->
+    <nav> <!-- Creates the frosted glass navigation bar. -->
+        <a href="#home"><i class="fa-solid fa-house"></i> Home</a> <!-- Home link with icon. -->
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a> <!-- About link with icon. -->
+        <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a> <!-- Education link with icon. -->
+        <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a> <!-- Skills link with icon. -->
+        <a href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a> <!-- Contact link with icon. -->
+    </nav> <!-- Closes nav. -->
+
+    <!-- HERO SECTION -->
+    <section id="home"> <!-- Defines the home section. -->
+        <div class="profile-pic"></div> <!-- Displays your image with the pulsing animation. -->
+        <h1 class="hero-name">Myneni Nanda Bhargav</h1> <!-- Your huge name. -->
+        <p class="hero-subtitle"><i class="fa-solid fa-robot"></i> 1st Year CSE-AI/ML Student</p> <!-- Your title with a robot icon for AI! -->
+    </section> <!-- Closes home section. -->
+
+    <!-- ABOUT SECTION -->
+    <section id="about"> <!-- Defines the about section. -->
+        <h2 class="section-title"><i class="fa-solid fa-address-card" style="color:#ff007f;"></i> About Me</h2> <!-- Title with an ID card icon. -->
+        <div class="card-container"> <!-- Container for tilted cards. -->
+            
+            <div class="tilted-card"> <!-- First tilted card. -->
+                <div class="tilted-card-content"> <!-- Content wrapper to counter-tilt. -->
+                    <h3 class="card-heading"><i class="fa-solid fa-location-dot card-icon"></i> My Background</h3> <!-- Subheading with location icon. -->
+                    <p class="card-text">
+                        Hello! I am Myneni Nanda Bhargav, proudly hailing from <strong>Hyderabad</strong>. My mother tongue is Telugu. Standing at 6 feet tall, I bring a big-picture perspective to my journey in technology. I am passionate about creating, learning, and navigating the vast world of Artificial Intelligence.
+                    </p> <!-- Paragraph text. -->
+                </div>
+            </div>
+
+            <div class="tilted-card"> <!-- Second tilted card. -->
+                <div class="tilted-card-content"> <!-- Content wrapper. -->
+                    <h3 class="card-heading"><i class="fa-solid fa-gamepad card-icon"></i> Hobbies & Interests</h3> <!-- Subheading with gamepad icon. -->
+                    <p class="card-text">
+                        <i class="fa-solid fa-baseball-bat-ball tech-icon" style="color: #d35400;"></i> <strong>Playing Cricket:</strong> I enjoy the strategy and teamwork required on the field.<br><br>
+                        <i class="fa-solid fa-headset tech-icon" style="color: #8e44ad;"></i> <strong>Online Gaming:</strong> Enhances my quick decision-making skills and serves as a great way to unwind.
+                    </p> <!-- Paragraph text with inline hobby icons. -->
+                </div>
+            </div>
+
+        </div> <!-- Closes card container. -->
+    </section> <!-- Closes about section. -->
+
+    <!-- EDUCATION & SKILLS SECTION -->
+    <section id="education"> <!-- Defines the Education and skills section. -->
+        <h2 class="section-title"><i class="fa-solid fa-laptop-code" style="color:#00bfff;"></i> Education & Skills</h2> <!-- Title with laptop icon. -->
+        <div class="card-container"> <!-- Container for tilted cards. -->
+            
+            <!-- Education Card -->
+            <div class="tilted-card"> <!-- Tilted card. -->
+                <div class="tilted-card-content"> <!-- Content wrapper. -->
+                    <h3 class="card-heading"><i class="fa-solid fa-building-columns card-icon"></i> Scaler School of Technology</h3> <!-- Subheading with university icon. -->
+                    <p class="card-text">
+                        <strong>Course:</strong> CSE - Artificial Intelligence & Machine Learning<br>
+                        <strong>Year:</strong> 1st Year<br>
+                        <strong>Location:</strong> Electronic City Phase-1, South Bengaluru<br><br>
+                        Currently building a rock-solid foundation in computer science and logical problem-solving.
+                    </p> <!-- Paragraph text. -->
+                </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="tilted-card" id="skills"> <!-- Tilted card. -->
+                <div class="tilted-card-content"> <!-- Content wrapper. -->
+                    <h3 class="card-heading"><i class="fa-solid fa-bolt card-icon"></i> Technical Arsenal</h3> <!-- Subheading with lightning icon. -->
+                    <p class="card-text">
+                        <strong>Programming Languages:</strong> <br>
+                        <i class="fa-brands fa-java tech-icon java-color"></i> Java &nbsp;&nbsp;
+                        <i class="fa-brands fa-python tech-icon python-color"></i> Python<br><br>
+                        
+                        <strong>Web Technologies:</strong> <br>
+                        <i class="fa-brands fa-html5 tech-icon html-color"></i> HTML &nbsp;&nbsp;
+                        <i class="fa-brands fa-css3-alt tech-icon css-color"></i> CSS<br><br>
+                        
+                        I am currently mastering algorithms in Java/Python while building beautiful, animated interfaces with HTML and CSS.
+                    </p> <!-- Paragraph text showing off the brand icons! -->
+                </div>
+            </div>
+
+        </div> <!-- Closes card container. -->
+    </section> <!-- Closes education section. -->
+
+    <!-- CONTACT SECTION -->
+    <section id="contact"> <!-- Defines the contact section. -->
+        <h2 class="section-title"><i class="fa-solid fa-envelope-open-text" style="color:#ff007f;"></i> Get In Touch</h2> <!-- Title with email icon. -->
+        <div class="card-container"> <!-- Container for cards. -->
+            <div class="tilted-card" style="text-align: center;"> <!-- Tilted card, centered text. -->
+                <div class="tilted-card-content"> <!-- Content wrapper. -->
+                    <p class="card-text" style="margin-bottom: 35px; font-size: 1.3rem;">
+                        Whether you want to discuss AI, collaborate on code, or chat about cricket, feel free to reach out to me!
+                    </p> <!-- Contact paragraph. -->
+                    
+                    <div class="btn-container"> <!-- Flexbox container to line up the buttons. -->
+                        
+                        <!-- Direct email button with envelope icon -->
+                        <a href="mailto:myneninandu18@gmail.com" class="btn"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                        
+                        <!-- GitHub link with GitHub brand icon -->
+                        <a href="https://github.com/myneninandabhargav" target="_blank" class="btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                        
+                        <!-- LinkedIn link with LinkedIn brand icon -->
+                        <a href="https://www.linkedin.com/feed/" target="_blank" class="btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                        
+                    </div> <!-- Closes button container. -->
+                </div>
+            </div>
+        </div> <!-- Closes card container. -->
+    </section> <!-- Closes contact section. -->
+
+</body> <!-- Closes the visible webpage. -->
+</html> <!-- Finishes the HTML document. -->
